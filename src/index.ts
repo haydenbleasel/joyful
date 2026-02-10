@@ -169,32 +169,8 @@ const generateBounded = (
   return words.join(separator);
 };
 
-const parseArgs = (
-  segmentsOrOptions?: number | JoyfulOptions,
-  separatorArg?: string
-): { maxLength: number | undefined; segments: number; separator: string } => {
-  if (typeof segmentsOrOptions === "object" && segmentsOrOptions !== null) {
-    const { maxLength, segments = 2, separator = "-" } = segmentsOrOptions;
-    return { maxLength, segments, separator };
-  }
-
-  return {
-    maxLength: undefined,
-    segments: segmentsOrOptions ?? 2,
-    separator: separatorArg ?? "-",
-  };
-};
-
-export function joyful(segments?: number, separator?: string): string;
-export function joyful(options: JoyfulOptions): string;
-export function joyful(
-  segmentsOrOptions?: number | JoyfulOptions,
-  separatorArg?: string
-): string {
-  const { maxLength, segments, separator } = parseArgs(
-    segmentsOrOptions,
-    separatorArg
-  );
+export const joyful = (options: JoyfulOptions = {}): string => {
+  const { maxLength, segments = 2, separator = "-" } = options;
 
   validateInput(segments, separator, maxLength);
 
@@ -203,4 +179,4 @@ export function joyful(
   }
 
   return generateBounded(segments, separator, maxLength);
-}
+};

@@ -1,5 +1,6 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
+
 import { friendlyWords } from "../src";
 
 const libDir = join(import.meta.dirname, "../lib");
@@ -12,7 +13,7 @@ for (const file of files) {
   allWords[name] = module.default;
 }
 
-const adjectives = allWords.adjectives;
+const {adjectives} = allWords;
 const categories = Object.entries(allWords)
   .filter(([name]) => name !== "adjectives")
   .map(([, words]) => words);

@@ -19,58 +19,58 @@ describe("joyful", () => {
     });
   });
 
-  describe("segments parameter", () => {
+  describe("segments option", () => {
     it("generates 3 words when segments is 3", () => {
-      const result = joyful(3);
+      const result = joyful({ segments: 3 });
       const words = result.split("-");
       expect(words).toHaveLength(3);
     });
 
     it("generates 5 words when segments is 5", () => {
-      const result = joyful(5);
+      const result = joyful({ segments: 5 });
       const words = result.split("-");
       expect(words).toHaveLength(5);
     });
 
     it("throws error when segments is less than 2", () => {
-      expect(() => joyful(1)).toThrow("Need at least 2 words");
+      expect(() => joyful({ segments: 1 })).toThrow("Need at least 2 words");
     });
 
     it("throws error when segments is 0", () => {
-      expect(() => joyful(0)).toThrow("Need at least 2 words");
+      expect(() => joyful({ segments: 0 })).toThrow("Need at least 2 words");
     });
 
     it("throws error when segments is negative", () => {
-      expect(() => joyful(-1)).toThrow("Need at least 2 words");
+      expect(() => joyful({ segments: -1 })).toThrow("Need at least 2 words");
     });
   });
 
-  describe("separator parameter", () => {
+  describe("separator option", () => {
     it("uses underscore as separator when specified", () => {
-      const result = joyful(2, "_");
+      const result = joyful({ separator: "_" });
       expect(result).toContain("_");
       expect(result).not.toContain("-");
     });
 
     it("uses space as separator when specified", () => {
-      const result = joyful(2, " ");
+      const result = joyful({ separator: " " });
       expect(result).toContain(" ");
     });
 
     it("uses custom string as separator", () => {
-      const result = joyful(2, "---");
+      const result = joyful({ separator: "---" });
       expect(result).toContain("---");
     });
 
     it("throws error when separator is empty string", () => {
-      expect(() => joyful(2, "")).toThrow("Need a separator");
+      expect(() => joyful({ separator: "" })).toThrow("Need a separator");
     });
   });
 
   describe("word uniqueness", () => {
     it("does not contain duplicate words", () => {
       for (let i = 0; i < 50; i += 1) {
-        const result = joyful(5);
+        const result = joyful({ segments: 5 });
         const words = result.split("-");
         const uniqueWords = new Set(words);
         expect(uniqueWords.size).toBe(words.length);
@@ -81,7 +81,7 @@ describe("joyful", () => {
   describe("word format", () => {
     it("all words are lowercase", () => {
       for (let i = 0; i < 20; i += 1) {
-        const result = joyful(3);
+        const result = joyful({ segments: 3 });
         const words = result.split("-");
         for (const word of words) {
           expect(word).toBe(word.toLowerCase());
@@ -91,7 +91,7 @@ describe("joyful", () => {
 
     it("all words are non-empty strings", () => {
       for (let i = 0; i < 20; i += 1) {
-        const result = joyful(3);
+        const result = joyful({ segments: 3 });
         const words = result.split("-");
         for (const word of words) {
           expect(word.length).toBeGreaterThan(0);
@@ -208,26 +208,6 @@ describe("joyful", () => {
       expect(() => joyful({ maxLength: 10.5 })).toThrow(
         "maxLength must be a positive integer"
       );
-    });
-  });
-
-  describe("backwards compatibility", () => {
-    it("works with positional arguments", () => {
-      const result = joyful(3, "_");
-      const words = result.split("_");
-      expect(words).toHaveLength(3);
-    });
-
-    it("works with no arguments", () => {
-      const result = joyful();
-      const words = result.split("-");
-      expect(words).toHaveLength(2);
-    });
-
-    it("works with segments only", () => {
-      const result = joyful(4);
-      const words = result.split("-");
-      expect(words).toHaveLength(4);
     });
   });
 });

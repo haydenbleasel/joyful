@@ -14,20 +14,24 @@ pnpm add joyful
 import { joyful } from "joyful";
 
 joyful(); // "amber-fox"
-joyful(3); // "golden-marble-cathedral"
-joyful(3, "_"); // "swift_northern_lights"
+joyful({ segments: 3 }); // "golden-marble-cathedral"
+joyful({ segments: 3, separator: "_" }); // "swift_northern_lights"
+joyful({ maxLength: 12 }); // "red-yak"
 ```
 
 ## API
 
-### `joyful(segments?, separator?)`
+### `joyful(options?)`
 
-| Parameter   | Type     | Default | Description                 |
-| ----------- | -------- | ------- | --------------------------- |
-| `segments`  | `number` | `2`     | Number of words to generate |
-| `separator` | `string` | `"-"`   | Character(s) between words  |
+| Option      | Type     | Default | Description                           |
+| ----------- | -------- | ------- | ------------------------------------- |
+| `segments`  | `number` | `2`     | Number of words to generate           |
+| `separator` | `string` | `"-"`   | Character(s) between words            |
+| `maxLength` | `number` | —       | Maximum length of the returned string |
 
 Returns a `string` of random words joined by the separator.
+
+When `maxLength` is set, words are filtered to fit within the constraint. Throws if the limit is too short to produce a valid result.
 
 ## Word Categories
 
