@@ -16,7 +16,7 @@ import { joyful } from "joyful";
 joyful(); // "amber-fox"
 joyful({ segments: 3 }); // "golden-marble-cathedral"
 joyful({ segments: 3, separator: "_" }); // "swift_northern_lights"
-joyful({ maxLength: 12 }); // "red-yak"
+joyful({ maxLength: 8 }); // "tan-elk"
 ```
 
 ## API
