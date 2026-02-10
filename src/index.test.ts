@@ -99,4 +99,135 @@ describe("joyful", () => {
       }
     });
   });
+
+  describe("options object form", () => {
+    it("accepts an options object with all properties", () => {
+      const result = joyful({ maxLength: 40, segments: 3, separator: "_" });
+      const words = result.split("_");
+      expect(words).toHaveLength(3);
+      expect(result.length).toBeLessThanOrEqual(40);
+    });
+
+    it("uses defaults when given an empty options object", () => {
+      const result = joyful({});
+      const words = result.split("-");
+      expect(words).toHaveLength(2);
+    });
+
+    it("accepts partial options", () => {
+      const result = joyful({ segments: 3 });
+      const words = result.split("-");
+      expect(words).toHaveLength(3);
+    });
+  });
+
+  describe("maxLength constraint", () => {
+    it("returns result within specified maxLength", () => {
+      for (let i = 0; i < 50; i += 1) {
+        const result = joyful({ maxLength: 15 });
+        expect(result.length).toBeLessThanOrEqual(15);
+      }
+    });
+
+    it("respects maxLength with custom segments and separator", () => {
+      for (let i = 0; i < 50; i += 1) {
+        const result = joyful({ maxLength: 20, segments: 3, separator: "_" });
+        expect(result.length).toBeLessThanOrEqual(20);
+        const words = result.split("_");
+        expect(words).toHaveLength(3);
+      }
+    });
+
+    it("works when maxLength is very generous", () => {
+      for (let i = 0; i < 20; i += 1) {
+        const result = joyful({ maxLength: 100 });
+        expect(result.length).toBeLessThanOrEqual(100);
+        const words = result.split("-");
+        expect(words).toHaveLength(2);
+      }
+    });
+
+    it("produces short results when maxLength is tight but achievable", () => {
+      for (let i = 0; i < 50; i += 1) {
+        const result = joyful({ maxLength: 8 });
+        expect(result.length).toBeLessThanOrEqual(8);
+        const words = result.split("-");
+        expect(words).toHaveLength(2);
+      }
+    });
+
+    it("works at the exact minimum boundary of 6", () => {
+      for (let i = 0; i < 50; i += 1) {
+        const result = joyful({ maxLength: 6 });
+        expect(result.length).toBeLessThanOrEqual(6);
+        const words = result.split("-");
+        expect(words).toHaveLength(2);
+      }
+    });
+
+    it("does not contain duplicate words under tight maxLength", () => {
+      for (let i = 0; i < 50; i += 1) {
+        const result = joyful({ maxLength: 12, segments: 3 });
+        const words = result.split("-");
+        const uniqueWords = new Set(words);
+        expect(uniqueWords.size).toBe(words.length);
+      }
+    });
+
+    it("respects maxLength with a multi-character separator", () => {
+      for (let i = 0; i < 50; i += 1) {
+        const result = joyful({ maxLength: 15, segments: 2, separator: "---" });
+        expect(result.length).toBeLessThanOrEqual(15);
+        expect(result).toContain("---");
+      }
+    });
+  });
+
+  describe("maxLength validation", () => {
+    it("throws when maxLength is impossibly small", () => {
+      expect(() => joyful({ maxLength: 3 })).toThrow("too short");
+    });
+
+    it("throws when maxLength is one below the minimum boundary", () => {
+      expect(() => joyful({ maxLength: 5 })).toThrow("too short");
+    });
+
+    it("throws for maxLength of 0", () => {
+      expect(() => joyful({ maxLength: 0 })).toThrow(
+        "maxLength must be a positive integer"
+      );
+    });
+
+    it("throws for negative maxLength", () => {
+      expect(() => joyful({ maxLength: -5 })).toThrow(
+        "maxLength must be a positive integer"
+      );
+    });
+
+    it("throws for non-integer maxLength", () => {
+      expect(() => joyful({ maxLength: 10.5 })).toThrow(
+        "maxLength must be a positive integer"
+      );
+    });
+  });
+
+  describe("backwards compatibility", () => {
+    it("works with positional arguments", () => {
+      const result = joyful(3, "_");
+      const words = result.split("_");
+      expect(words).toHaveLength(3);
+    });
+
+    it("works with no arguments", () => {
+      const result = joyful();
+      const words = result.split("-");
+      expect(words).toHaveLength(2);
+    });
+
+    it("works with segments only", () => {
+      const result = joyful(4);
+      const words = result.split("-");
+      expect(words).toHaveLength(4);
+    });
+  });
 });

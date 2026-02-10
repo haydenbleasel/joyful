@@ -13,19 +13,19 @@ pnpm add joyful
 ```ts
 import { joyful } from "joyful";
 
-joyful();        // "amber-fox"
-joyful(3);       // "golden-marble-cathedral"
-joyful(3, "_");  // "swift_northern_lights"
+joyful(); // "amber-fox"
+joyful(3); // "golden-marble-cathedral"
+joyful(3, "_"); // "swift_northern_lights"
 ```
 
 ## API
 
 ### `joyful(segments?, separator?)`
 
-| Parameter   | Type     | Default | Description                    |
-| ----------- | -------- | ------- | ------------------------------ |
-| `segments`  | `number` | `2`     | Number of words to generate    |
-| `separator` | `string` | `"-"`   | Character(s) between words     |
+| Parameter   | Type     | Default | Description                 |
+| ----------- | -------- | ------- | --------------------------- |
+| `segments`  | `number` | `2`     | Number of words to generate |
+| `separator` | `string` | `"-"`   | Character(s) between words  |
 
 Returns a `string` of random words joined by the separator.
 
@@ -37,12 +37,12 @@ animals, architecture, art, emotions, fashion, food, history, literature, music,
 
 ## Permutations
 
-| Segments | Combinations             |
-| -------- | ------------------------ |
-| 2        | 700,295                  |
-| 3        | 2,160,410,075            |
-| 4        | 6,664,865,081,375        |
-| 5        | 20,561,108,776,041,876   |
+| Segments | Combinations           |
+| -------- | ---------------------- |
+| 2        | 700,295                |
+| 3        | 2,160,410,075          |
+| 4        | 6,664,865,081,375      |
+| 5        | 20,561,108,776,041,876 |
 
 ## Credits
 

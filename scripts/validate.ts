@@ -89,10 +89,18 @@ const registerWord = (word: string, ctx: WordContext): void => {
 };
 
 const checkWordValidity = (word: string, ctx: WordContext): boolean => {
-  if (!checkSpaceOrHyphen(word, ctx)) {return false;}
-  if (!checkExactDuplicate(word, ctx)) {return false;}
-  if (!checkRelatedWord(word, ctx)) {return false;}
-  if (!checkPluralOrYEnding(word, ctx)) {return false;}
+  if (!checkSpaceOrHyphen(word, ctx)) {
+    return false;
+  }
+  if (!checkExactDuplicate(word, ctx)) {
+    return false;
+  }
+  if (!checkRelatedWord(word, ctx)) {
+    return false;
+  }
+  if (!checkPluralOrYEnding(word, ctx)) {
+    return false;
+  }
   registerWord(word, ctx);
   return true;
 };
