@@ -1,4 +1,4 @@
-/* eslint-disable eslint-plugin-jest/require-hook */
+/* eslint-disable eslint-plugin-jest/require-hook, eslint-plugin-import/no-nodejs-modules */
 import fs from "node:fs";
 import path from "node:path";
 

@@ -1,3 +1,4 @@
+/* eslint-disable eslint-plugin-import/no-relative-parent-imports */
 import adjectives from "../lib/adjectives.json" assert { type: "json" };
 import animals from "../lib/animals.json" assert { type: "json" };
 import architecture from "../lib/architecture.json" assert { type: "json" };

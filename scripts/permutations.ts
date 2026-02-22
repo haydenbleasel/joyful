@@ -1,3 +1,4 @@
+/* eslint-disable eslint-plugin-import/no-nodejs-modules, eslint-plugin-jest/require-hook, eslint-plugin-import/no-relative-parent-imports */
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
 
@@ -13,7 +14,7 @@ for (const file of files) {
   allWords[name] = module.default;
 }
 
-const {adjectives} = allWords;
+const { adjectives } = allWords;
 const categories = Object.entries(allWords)
   .filter(([name]) => name !== "adjectives")
   .map(([, words]) => words);
