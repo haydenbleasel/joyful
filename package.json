@@ -45,6 +45,7 @@
     "build": "tsup",
     "dev": "tsup --watch",
     "test": "bun test",
+    "test:coverage": "bun test --coverage",
     "check": "ultracite check",
     "fix": "ultracite fix",
     "permutations": "bun scripts/permutations.ts",
