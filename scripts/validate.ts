@@ -1,4 +1,3 @@
-/* eslint-disable eslint-plugin-jest/require-hook */
 import fs from "node:fs";
 import path from "node:path";
 
