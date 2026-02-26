@@ -1,6 +1,7 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
 
+// oxlint-disable-next-line import/no-relative-parent-imports
 import { joyful } from "../src";
 
 const libDir = join(import.meta.dirname, "../src/lib");
