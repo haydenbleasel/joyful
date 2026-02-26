@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { friendlyWords } from "../src";
 
-const libDir = join(import.meta.dirname, "../lib");
+const libDir = join(import.meta.dirname, "../src/lib");
 const files = readdirSync(libDir).filter((f) => f.endsWith(".json"));
 
 const allWords: Record<string, string[]> = {};

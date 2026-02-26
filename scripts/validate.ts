@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const libDir = path.join(__dirname, "..", "lib");
+const libDir = path.join(import.meta.dirname, "..", "src", "lib");
 
 interface Duplicate {
   word: string;
