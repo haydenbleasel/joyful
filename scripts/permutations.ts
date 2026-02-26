@@ -1,7 +1,7 @@
 import { readdirSync } from "node:fs";
 import { join } from "node:path";
 
-import { friendlyWords } from "../src";
+import { joyful } from "../src";
 
 const libDir = join(import.meta.dirname, "../src/lib");
 const files = readdirSync(libDir).filter((f) => f.endsWith(".json"));
@@ -13,7 +13,6 @@ for (const file of files) {
   allWords[name] = module.default;
 }
 
-const {adjectives} = allWords;
 const categories = Object.entries(allWords)
   .filter(([name]) => name !== "adjectives")
   .map(([, words]) => words);
@@ -24,7 +23,7 @@ const calculatePermutations = (segments: number): number => {
   }
 
   // Start with the number of adjectives
-  let totalPermutations = adjectives.length;
+  let totalPermutations = allWords.adjectives.length;
 
   // Multiply by the total number of words in all other categories for each additional segment
   const totalWordsInCategories = categories.reduce(
@@ -51,7 +50,7 @@ const maxAttempts = sampleSize * 10;
 
 for (let i = 0; i < maxAttempts && uniqueWords.size < sampleSize; i += 1) {
   // Generate 5-word combinations
-  uniqueWords.add(friendlyWords(5));
+  uniqueWords.add(joyful({ segments: 5 }));
 }
 
 console.log(`\nUnique ${5}-word combinations generated: ${uniqueWords.size}`);
