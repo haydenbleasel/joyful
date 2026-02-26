@@ -1,0 +1,5 @@
+---
+"joyful": patch
+---
+
+Bump deps
