@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git+https://github.com/haydenbleasel/joyful.git"
   },
+  "bin": {
+    "joyful": "./dist/cli.mjs"
+  },
   "files": [
     "dist"
   ],
