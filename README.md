@@ -11,7 +11,7 @@ Generate delightful, random word combinations for your app — perfect for proje
 ## Installation
 
 ```bash
-pnpm add joyful
+bun add joyful
 ```
 
 ## Usage
