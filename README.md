@@ -2,6 +2,12 @@
 
 Generate delightful, random word combinations for your app — perfect for project names, usernames, or unique identifiers.
 
+<div>
+  <img src="https://img.shields.io/npm/dy/joyful" alt="" />
+  <img src="https://img.shields.io/npm/v/joyful" alt="" />
+  <img src="https://img.shields.io/github/license/haydenbleasel/joyful" alt="" />
+</div>
+
 ## Installation
 
 ```bash
