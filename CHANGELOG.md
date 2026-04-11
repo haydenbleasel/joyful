@@ -1,5 +1,11 @@
 # joyful
 
+## 1.1.3
+
+### Patch Changes
+
+- 186d9d2: Update README
+
 ## 1.1.2
 
 ### Patch Changes
