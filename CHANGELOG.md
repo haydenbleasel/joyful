@@ -1,5 +1,12 @@
 # joyful
 
+## 1.1.2
+
+### Patch Changes
+
+- 4ff468b: Create CLI
+- 1e3ed67: Add SFW to readme, remove non-joyful words
+
 ## 1.1.1
 
 ### Patch Changes
