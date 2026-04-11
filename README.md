@@ -41,7 +41,26 @@ All word lists are manually curated to be safe for work and family-friendly. Eve
 
 The first word is always a prefix (adjective or color). Subsequent words are drawn from:
 
-animals, architecture, art, emotions, fashion, food, history, literature, music, mythology, nature, professions, science, space, sports, transportation
+| Category       | Words |
+| -------------- | ----- |
+| Adjectives     | 227   |
+| Animals        | 203   |
+| Architecture   | 184   |
+| Art            | 186   |
+| Colors         | 114   |
+| Emotions       | 89    |
+| Fashion        | 169   |
+| Food           | 186   |
+| History        | 131   |
+| Literature     | 197   |
+| Music          | 162   |
+| Mythology      | 164   |
+| Nature         | 202   |
+| Professions    | 288   |
+| Science        | 223   |
+| Space          | 131   |
+| Sports         | 154   |
+| Transportation | 183   |
 
 ## Permutations
 
