@@ -33,6 +33,10 @@ Returns a `string` of random words joined by the separator.
 
 When `maxLength` is set, words are filtered to fit within the constraint. Throws if the limit is too short to produce a valid result.
 
+## SFW Guarantee
+
+All word lists are manually curated to be safe for work and family-friendly. Every category has been audited to exclude profanity, slurs, and negative or distressing terms. You can use joyful-generated names in any context without worry.
+
 ## Word Categories
 
 The first word is always a prefix (adjective or color). Subsequent words are drawn from:
@@ -43,10 +47,10 @@ animals, architecture, art, emotions, fashion, food, history, literature, music,
 
 | Segments | Combinations           |
 | -------- | ---------------------- |
-| 2        | 700,295                |
-| 3        | 2,160,410,075          |
-| 4        | 6,664,865,081,375      |
-| 5        | 20,561,108,776,041,876 |
+| 2        | 673,282                |
+| 3        | 1,996,954,412          |
+| 4        | 5,922,966,785,992      |
+| 5        | 17,567,519,487,252,272 |
 
 ## Credits
 
